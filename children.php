@@ -24,10 +24,10 @@ $children = $db->query("SELECT * FROM children")->fetchAll();
     
     foreach($children as $child) {
         $i = $child["id"];
-        $letter_text = $db->query("SELECT letter_text FROM letters WHERE id = $i")->fetchColumn();
+        $lette_text = $db->query("SELECT letter_text FROM letters WHERE id = $i")->fetchColumn();
 
         echo "<div class='card'>";
-        echo "<h2>" . htmlspecialchars($child["firstname"]) . " " .htmlspecialchars($child["surname"]). " <br> Vecums:" .htmlspecialchars($child["age"]) . "</h2>";
+        echo "<h2>" . $child["firstname"] . " " .$child["surname"]. " <br> Vecums:" .$child["age"] . "</h2>";
        
         $gifts = explode(":", $letter_text);
         $gifts = explode(",", $gifts[sizeof($gifts) - 1]);
